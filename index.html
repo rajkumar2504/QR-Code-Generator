@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="bi bi-qr-code-scan"></i> QR Code Generator</h1>
+        
+        <div class="input-group">
+            <label for="qr-text">Enter content</label>
+            <textarea id="qr-text" placeholder="Type anything..."></textarea>
+        </div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="content-type">Content Type</label>
+                <select id="content-type" class="form-control">
+                    <option value="plain">Plain Text</option>
+                    <option value="url">Website URL</option>
+                    <option value="contact">Contact Info</option>
+                    <option value="wifi">WiFi Login</option>
+                    <option value="email">Email</option>
+                    <option value="sms">SMS</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="qr-color">QR Color</label>
+                <input type="color" id="qr-color" value="#000000">
+            </div>
+            
+            <div class="control-group">
+                <label for="qr-bgcolor">Background</label>
+                <input type="color" id="qr-bgcolor" value="#ffffff">
+            </div>
+            
+            <div class="control-group">
+                <label for="qr-size">Size (px)</label>
+                <input type="number" id="qr-size" min="100" max="1000" value="200">
+            </div>
+        </div>
+        
+        <div id="advanced-options" class="hidden">
+            <div class="input-group" id="wifi-options">
+                <label for="wifi-password">WiFi Password</label>
+                <input type="text" id="wifi-password" placeholder="Enter WiFi password">
+            </div>
+            <div class="input-group" id="contact-options">
+                <label for="contact-phone">Phone Number</label>
+                <input type="tel" id="contact-phone" placeholder="Enter phone number">
+            </div>
+        </div>
+        
+        <button id="generate-btn">Generate QR Code</button>
+        
+        <div class="qr-container hidden" id="qr-container">
+            <img id="qr-code" class="qr-code" alt="Generated QR Code">
+            
+            <div class="actions">
+                <button id="download-btn" class="secondary">Download</button>
+                <button id="clear-btn" class="secondary">Clear</button>
+            </div>
+        </div>
+        
+        <div id="error-message" class="error hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
